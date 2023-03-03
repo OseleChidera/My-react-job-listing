@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import Navbar from './Navbar';
+import Main from './Main';
+import List from './list';
+import Allbutton from './Allbutton';
+import Data from './data.json'
+import { useState } from 'react';
+import {motion} from 'framer-motion'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+
+export default function App() {
+const [json , setJson] = useState(Data)
+const [json2 , setJson2] = useState(Data)
+const [query , setQuerys] = useState("true")
+
+
+
+function filter(e){
+  setQuerys(e.target.value)
+  setJson2(json.filter(item=> item.tools.includes(e.target.value) || item.languages.includes(e.target.value)))
+
 }
-
-export default App;
+function showAll(){
+  console.log('heyyyyyyyyyy');
+  setJson2(Data)
+}
+  return (
+    <>
+     <Navbar/>
+      <Main 
+      filter={filter}
+      info={json2}
+      setJson2={setJson2}
+      query={query}
+      setQuery={setQuerys}
+      showAll={showAll}
+      >
+      <Allbutton/>
+      <List/>
+      </Main>
+    </>
+  )
+}
