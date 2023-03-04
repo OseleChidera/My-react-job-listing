@@ -24,9 +24,9 @@ nav{
   top: 0;
   background-color: white;
 }
-nav img{
-  width: inherit;
-  height: 100%;
+.navimg{
+  width: 100%;
+  /* height: 100%; */
 }
 
 .main{

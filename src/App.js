@@ -11,7 +11,8 @@ import {motion} from 'framer-motion'
 
 
 export default function App() {
-const [json , setJson] = useState(Data)
+  let response = fetch('./data.json').then(response => response.text());
+const [json1 , setJson] = useState(response)
 const [json2 , setJson2] = useState(Data)
 const [query , setQuerys] = useState("true")
 
@@ -19,7 +20,7 @@ const [query , setQuerys] = useState("true")
 
 function filter(e){
   setQuerys(e.target.value)
-  setJson2(json.filter(item=> item.tools.includes(e.target.value) || item.languages.includes(e.target.value)))
+  setJson2(json1.filter(item=> item.tools.includes(e.target.value) || item.languages.includes(e.target.value)))
 
 }
 function showAll(){

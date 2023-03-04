@@ -18,10 +18,8 @@ export default function List({filter ,info ,query   }) {
                 initial={{opacity:0}}
                 exit={{opacity:0}}
                 layout
-                // hidden={{ y: 20, opacity: 0 }}
-                // visible={{ y: 0, opacity: 1}}
-                
-                className={`item  item-${eachListItem.id}`} key={index}>
+                className={`item  item-${eachListItem.id}`} 
+                key={eachListItem.id}>
                 <div className="left">
 
 
@@ -56,9 +54,8 @@ export default function List({filter ,info ,query   }) {
         {eachListItem.languages.map((eachLang , languageIndex)=>
         { 
             return (
-        <li>
+        <li key={languageIndex}>
             <input 
-                key={languageIndex}
                 type="button" 
                 className="red button" 
                 onClick={(e)=>filter(e)} 
@@ -68,9 +65,8 @@ export default function List({filter ,info ,query   }) {
             );
         })}
         {eachListItem.tools.map((eachTool , toolIndex )=>{return(
-            <li>
+            <li  key={toolIndex}>
             <input 
-            key={toolIndex}
             type="button" 
             className="blue button" 
             onClick={(e)=>filter(e)} 
