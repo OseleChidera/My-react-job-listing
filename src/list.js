@@ -25,7 +25,7 @@ export default function List({filter ,info ,query   }) {
 
 {/* ============================================================================================ */}
                 <div className="company-logo">
-                    <img src={`./images/${eachListItem.logo}`}  alt={eachListItem.company} />
+                    <img src={require(`./images/${eachListItem.logo}`)}  alt={eachListItem.company} />
                 </div>
 {/* ============================================================================================ */}
 

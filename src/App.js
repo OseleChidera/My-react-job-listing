@@ -12,9 +12,9 @@ import {motion} from 'framer-motion'
 
 export default function App() {
   let response = fetch('./data.json').then(response => response.text());
-const [json1 , setJson] = useState(response)
+const [json1 , setJson] = useState(Data)
 const [json2 , setJson2] = useState(Data)
-const [query , setQuerys] = useState("true")
+const [query , setQuerys] = useState("")
 
 
 
